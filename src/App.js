@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useState } from 'react';
 import './App.css';
 
+
+const quotes =[
+  "Be happy the way you are",
+  "Be happy even the world go against you",
+  "You are who you are, don't change for anyone",
+  "You are pretty the way you are"
+]
 function App() {
+  const [counter , setCounter] = useState(3)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div 
+        onClick={(event) => setCounter(counter + 1)}
+        className="App"
+      >
+        {quotes[counter % quotes.length]}
     </div>
   );
 }
